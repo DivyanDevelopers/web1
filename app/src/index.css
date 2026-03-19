@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Existing styles preserved */
+* { 
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+/* New animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Responsive section padding */
+.section-padding {
+  @apply px-6 lg:px-12 xl:px-24 2xl:px-32;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply rounded-full bg-gold px-6 py-3 font-medium text-white transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5 bg-gold/90 shadow-gold;
+}
+
+.btn-outline {
+  @apply rounded-full border border-charcoal px-6 py-3 font-medium text-charcoal transition-all duration-300;
+}
+
+.btn-outline:hover {
+  @apply bg-charcoal text-off-white;
+}
+
