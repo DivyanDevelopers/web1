@@ -239,9 +239,11 @@ export default function PageHeroWidget() {
 
   return (
     <section ref={sectionRef} className="relative pt-32 pb-24 overflow-hidden">
-  <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-50 animate-pulse-slow`} />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/60 via-white/80 to-amber-50/70 opacity-90 animate-pulse-slow" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/50 to-transparent" />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-50/30 via-white/60 to-white/90" />
+
       
       <div className="absolute top-10 left-10 w-20 h-20">
         <Sparkles className="floating-icon w-8 h-8 text-gold/30 absolute animate-ping" style={{ top: 0, left: 8 }} />
@@ -251,19 +253,23 @@ export default function PageHeroWidget() {
       <div className="relative section-padding z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="hero-content space-y-8 lg:order-1">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/90 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-sm">
+
               <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full animate-pulse" />
-              <span className="label-mono text-gold/90 uppercase tracking-wider font-mono text-sm">
+              <span className="label-mono text-amber-700/90 uppercase tracking-wider font-mono text-sm font-semibold">
+
                 {pathname.split('/')[1]?.replace('-', ' ').toUpperCase() || 'EXPERIENCE'}
               </span>
             </div>
 
             <div className="space-y-4">
               {config.primaryIcon && <config.primaryIcon className="w-20 h-20 lg:w-24 lg:h-24 text-gold/80 animate-float-slow" />}
-              <h1 className="font-display text-4xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-off-white to-gray-200 bg-clip-text text-transparent leading-tight">
+              <h1 className="font-display text-4xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-slate-900 via-neutral-800 to-slate-800 bg-clip-text text-transparent leading-tight">
+
                 {config.title}
               </h1>
-              <p className="text-xl lg:text-2xl text-off-white/85 max-w-lg bg-gradient-to-r from-white/50 to-transparent bg-clip-text">
+              <p className="text-xl lg:text-2xl text-slate-700/90 max-w-lg leading-relaxed">
+
                 {config.subtitle}
               </p>
             </div>
@@ -273,14 +279,18 @@ export default function PageHeroWidget() {
                 {config.stats.map((stat, idx) => (
                   <div 
                     key={idx}
-                    className="stat-item group relative p-6 lg:p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-500 cursor-pointer overflow-hidden"
+                    className="stat-item group relative p-6 lg:p-8 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200/50 hover:border-slate-300/70 hover:bg-white shadow-xl transition-all duration-500 cursor-pointer overflow-hidden"
                   >
+
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <stat.icon className="w-8 h-8 text-gold/80 mb-2" />
-                    <div className="text-3xl lg:text-4xl font-black text-gold mt-3 mb-1 bg-gradient-to-r from-gold to-amber-500 bg-clip-text">
+                    <stat.icon className="w-8 h-8 text-amber-600/90 mb-2 group-hover:scale-110 transition-transform" />
+
+                    <div className="text-3xl lg:text-4xl font-black text-amber-600 mt-3 mb-1 bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text">
+
                       {stat.value}
                     </div>
-                    <div className="text-off-white/70 font-medium group-hover:text-off-white transition-colors">
+                    <div className="text-slate-600/90 font-semibold group-hover:text-slate-800 transition-colors">
+
                       {stat.label}
                     </div>
                   </div>
@@ -291,8 +301,9 @@ export default function PageHeroWidget() {
             {config.ctaText && (
               <Link
                 to={config.ctaLink || '#'}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 hover:border-white/40 hover:bg-white/20 text-lg font-semibold text-off-white transition-all duration-500 overflow-hidden"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/50 hover:border-slate-300/60 hover:bg-white shadow-lg text-lg font-semibold text-slate-900 transition-all duration-500 overflow-hidden hover:shadow-xl hover:-translate-y-1"
               >
+
                 <span>{config.ctaText}</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-transparent -skew-x-12 transform -translate-x-[120%] group-hover:translate-x-[0%] transition-transform duration-1000" />
@@ -301,7 +312,8 @@ export default function PageHeroWidget() {
           </div>
 
           <div className="hero-content lg:order-2 lg:max-w-md lg:-mr-16 lg:translate-x-8">
-            <div className="bg-white/5 backdrop-blur-3xl rounded-3xl p-8 lg:p-10 border border-white/10 shadow-2xl">
+            <div className="bg-white/95 backdrop-blur-3xl rounded-3xl p-8 lg:p-10 border border-slate-200/50 shadow-2xl ring-1 ring-slate-100/50">
+
               <LeadForm
                 variant="compact"
                 title={config.formTitle}
